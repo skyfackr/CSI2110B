@@ -93,7 +93,19 @@ public class AlgAnalysis {
      */
     public static long unique2Runtime(int n) {
         // add your code here (part 2)
-        return 0;
+        long tn=0;
+        boolean allrun=false;
+        while (!allrun){
+            for (int i=0;i<ONE_COUNT_TEST_TIME;i++){
+                int[] array=genArray(n);
+                NanoTimeCount timer=new NanoTimeCount();
+                if (Unique2.unique2(array))
+                    allrun=true;
+                timer.end();
+                tn=Math.max(tn, timer.getTime());
+            }
+        }
+        return tn;
     }
 
     /**
