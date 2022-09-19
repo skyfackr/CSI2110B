@@ -18,6 +18,7 @@ package lab.lab1A;
 // Revision 1.1  2015/09/19 11:21:00  Lucia Moura
 // ==========================================================================
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,8 +36,31 @@ public class AlgAnalysis {
      */
     public static void arraySortRuntime(int count, int maxSize) {
         // add your code here (part 1)
-		
+		int[] sample=createCountSample(count, maxSize);
+		for (int i = 0; i < sample.length; i++) {
+			int n=sample[i];
+			long tn=0;
+			for (int j=0;j<ONE_COUNT_TEST_TIME;j++){
+				int[] array=genArray(n);
+				NanoTimeCount timer=new NanoTimeCount();
+				Arrays.sort(array);
+				timer.end();
+				tn=Math.max(tn, timer.getTime());
+			}
+			System.out.println("n={},T(n)={},T(n)/(N^2)={},T(n)/(n log n)={}".format(n,tn,tn/(n*n),tn/(Math.log(n)*n)));
+		}
     }
+
+	static int[] createCountSample(int count, int maxSize)
+	{
+		int[] ans= new int[count];
+		ans[count-1]=maxSize;
+		for (int i=count-2;i>=0;i--)
+		{
+			ans[i]=ans[i+1]-(int)maxSize/i;
+		}
+		return ans;
+	}
 
     /**
      * creates an array of size n, then tests the runtime of findDups1 using that array
