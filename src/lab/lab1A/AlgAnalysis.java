@@ -20,6 +20,8 @@ package lab.lab1A;
 import java.util.*;
 public class AlgAnalysis {
 
+	static int ONE_COUNT_TEST_TIME=10;
+
 	/**
 	 * Tests runtimes of Arrays.sort()
 	 * Runs experiments to find the average time taken to sort arrays of n elements
@@ -30,6 +32,7 @@ public class AlgAnalysis {
 	 */
 	public static void arraySortRuntime(int count, int maxSize){
 		// add your code here (part 1)
+
 	}
 	
 	/**
