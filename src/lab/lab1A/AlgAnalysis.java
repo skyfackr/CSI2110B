@@ -47,7 +47,7 @@ public class AlgAnalysis {
 				timer.end();
 				tn=Math.max(tn, timer.getTime());
 			}
-			System.out.println("n={},T(n)={},T(n)/(N^2)={},T(n)/(n log n)={}".format(n,tn,tn/(n*n),tn/(Math.log(n)*n)));
+			System.out.printf("n=%d,T(n)=%d,T(n)/(N^2)=%.3f,T(n)/(n log n)=%.3f%n", n,tn,(double)tn/(n*n),tn/(Math.log(n)*n));
 		}
     }
 
@@ -57,7 +57,7 @@ public class AlgAnalysis {
 		ans[count-1]=maxSize;
 		for (int i=count-2;i>=0;i--)
 		{
-			ans[i]=ans[i+1]-(int)maxSize/i;
+			ans[i]=ans[i+1]-(int)maxSize/count;
 		}
 		return ans;
 	}
