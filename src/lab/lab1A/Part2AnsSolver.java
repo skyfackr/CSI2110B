@@ -9,6 +9,8 @@ n=100000, unique1=851631000, unique2=4450000
 n=200000, unique1=3519915500, unique2=9920100
 * */
 
+import com.sun.jdi.event.StepEvent;
+
 import java.util.Date;
 import java.util.Timer;
 
@@ -24,36 +26,44 @@ public class Part2AnsSolver {
             System.out.println("n=%d, unique1=%d, unique2=%d".formatted(sample[i],unique1Runtime(sample[i]),unique2Runtime(sample[i])));
         }
     }
+
+    static int STEP=100000;
     static void findLargestSize()
     {
         long max1=500000,max2=500000,maxtime1=0,maxtime2=0;
+        System.out.println("testing unique1");
         while (true)
         {
-            max1++;
+            max1+=STEP;
+            System.out.println("max1 = " + max1);
             long time=unique1Runtime((int)max1);
             if (time> ONE_MINUTE_NANOSEC)
             {
-                max1--;
+                max1-=STEP;
                 break;
             }
             maxtime1=Math.max(maxtime1,time);
+            System.out.println("time = " + time);
         }
+        System.out.println("testing unique2");
         while (true)
         {
-            max2++;
+            max2+=STEP;
+            System.out.println("max2 = " + max2);
             long time=unique2Runtime((int)max2);
             if (time> ONE_MINUTE_NANOSEC)
             {
-                max2--;
+                max2-=STEP;
                 break;
             }
             maxtime2=Math.max(maxtime2,time);
+            System.out.println("time = " + time);
         }
         System.out.println("unique1 max size=%d, unique2 max size=%d".formatted(max1,max2));
     }
 
     public static void main(String[] args) {
-        solveEqualN();
+        //solveEqualN();
         findLargestSize();
     }
 }
