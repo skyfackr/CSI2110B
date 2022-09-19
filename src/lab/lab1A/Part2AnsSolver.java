@@ -14,7 +14,8 @@ import static lab.lab1A.AlgAnalysis.unique2Runtime;
 
 public class Part2AnsSolver {
     static long ONE_MINUTE_NANOSEC = 60000000000L;
-    static int STEP = 500000;
+    static int STEP1 = 10000;
+    static int STEP2=500000;
 
     static void solveEqualN() {
         int[] sample = new int[]{50, 200, 10000, 20000, 50000, 100000, 200000};
@@ -27,11 +28,11 @@ public class Part2AnsSolver {
         long max1 = 250000, max2 = 6500000, maxtime1 = 0, maxtime2 = 0;
         System.out.println("testing unique1");
         while (true) {
-            max1 += STEP;
+            max1 += STEP1;
             System.out.println("max1 = " + max1);
             long time = unique1Runtime((int) max1);
             if (time > ONE_MINUTE_NANOSEC) {
-                max1 -= STEP;
+                max1 -= STEP1;
                 break;
             }
             maxtime1 = Math.max(maxtime1, time);
@@ -39,11 +40,11 @@ public class Part2AnsSolver {
         }
         System.out.println("testing unique2");
         while (true) {
-            max2 += STEP;
+            max2 += STEP2;
             System.out.println("max2 = " + max2);
             long time = unique2Runtime((int) max2);
             if (time > ONE_MINUTE_NANOSEC) {
-                max2 -= STEP;
+                max2 -= STEP2;
                 break;
             }
             maxtime2 = Math.max(maxtime2, time);
