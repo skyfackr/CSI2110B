@@ -7,7 +7,7 @@ package lab.lab1;
  */
 
 class GLinkList {
-    Node llist;
+    GNode<String> llist;
 
     GLinkList(int sz ) {
 	if ( sz <= 0 ) {
@@ -15,12 +15,12 @@ class GLinkList {
 	}
 	else {
 	    // start with list of size 1
-	    llist = new Node( "0", null ); 
-	    Node current = llist; // temp node for loop
+	    llist = new GNode<String>( "0", null );
+	    GNode<String> current = llist; // temp node for loop
 	    // add further nodes
 	    for ( int i=1; i<sz; ++i ) {
 		// create node and attach it to the list
-		Node node2Add = new Node( Integer.toString(i), null );
+		GNode<String> node2Add = new GNode<String>( Integer.toString(i), null );
 		current.setNext(node2Add);   // add first node
 		current=node2Add;
 	    }
@@ -32,7 +32,7 @@ class GLinkList {
      */
     public void print() {
 	/* Print the list */
-	Node current = llist; // point to the first node
+	GNode<String> current = llist; // point to the first node
 	while (current != null) {
 	    System.out.print((String)current.getElement() + " ");	
 	    current = current.getNext(); // move to the next
@@ -48,8 +48,8 @@ class GLinkList {
 
     public void deleteLast() {
 	if ( llist == null ) return; // no node
-	Node prev = llist;
-	Node current = prev.getNext(); 
+	GNode<String> prev = llist;
+	GNode<String> current = prev.getNext();
 	if ( current == null ) { // only 1 node
 	    llist = null;
 	    return;
