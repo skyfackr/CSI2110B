@@ -9,15 +9,31 @@ package lab.lab1;
  */
 
 public class Node {
-  private Object element;
-  private Node next;
-  Node() { this(null, null); }
+    private Object element;
+    private Node next;
+
+    Node() {
+        this(null, null);
+    }
+
     Node(Object e, Node n) {
-    element = e;
-    next = n;
-  }
-  public void setElement(Object newElem) { element = newElem; }
-  public void setNext(Node newNext) { next = newNext; }
-  public Object getElement() { return element; }
-  public Node getNext() { return next; }
+        element = e;
+        next = n;
+    }
+
+    public Object getElement() {
+        return element;
+    }
+
+    public void setElement(Object newElem) {
+        element = newElem;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node newNext) {
+        next = newNext;
+    }
 }
