@@ -1,5 +1,13 @@
 package lab.lab1A;
-
+/*
+* n=50, unique1=592200, unique2=728200
+n=200, unique1=233400, unique2=45700
+n=10000, unique1=10039300, unique2=1943200
+n=20000, unique1=35528600, unique2=1877200
+n=50000, unique1=210946400, unique2=3844600
+n=100000, unique1=851631000, unique2=4450000
+n=200000, unique1=3519915500, unique2=9920100
+* */
 
 import java.util.Date;
 import java.util.Timer;
