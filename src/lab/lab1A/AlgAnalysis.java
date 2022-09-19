@@ -120,7 +120,7 @@ public class AlgAnalysis {
         for (int i = 0; i < ret.length; i++) {
             ret[i] = i;
         }
-        return ret;
+        return randomizeArray(ret);
     }
 
     /**
