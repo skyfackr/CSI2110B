@@ -18,7 +18,7 @@ public class Part2AnsSolver {
     }
     static void findLargestSize()
     {
-        long max1=0,max2=0,maxtime1=0,maxtime2=0;
+        long max1=500000,max2=500000,maxtime1=0,maxtime2=0;
         while (true)
         {
             max1++;
