@@ -14,7 +14,7 @@ import static lab.lab1A.AlgAnalysis.unique2Runtime;
 
 public class Part2AnsSolver {
     static long ONE_MINUTE_NANOSEC = 60000000000L;
-    static int STEP = 100000;
+    static int STEP = 500000;
 
     static void solveEqualN() {
         int[] sample = new int[]{50, 200, 10000, 20000, 50000, 100000, 200000};
@@ -24,7 +24,7 @@ public class Part2AnsSolver {
     }
 
     static void findLargestSize() {
-        long max1 = 500000, max2 = 500000, maxtime1 = 0, maxtime2 = 0;
+        long max1 = 250000, max2 = 6500000, maxtime1 = 0, maxtime2 = 0;
         System.out.println("testing unique1");
         while (true) {
             max1 += STEP;
