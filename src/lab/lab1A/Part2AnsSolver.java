@@ -43,4 +43,9 @@ public class Part2AnsSolver {
         }
         System.out.println("unique1 max size=%d, unique2 max size=%d".formatted(max1,max2));
     }
+
+    public static void main(String[] args) {
+        solveEqualN();
+        findLargestSize();
+    }
 }
