@@ -25,7 +25,7 @@ public class Part2AnsSolver {
     }
 
     static void findLargestSize() {
-        long max1 = 800000, max2 = 6500000, maxtime1 = 0, maxtime2 = 0;
+        long max1 = 800000, max2 = 650000000, maxtime1 = 0, maxtime2 = 0;
         System.out.println("testing unique1");
         while (true) {
             max1 += STEP1;
