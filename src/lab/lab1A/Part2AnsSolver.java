@@ -7,6 +7,7 @@ n=20000, unique1=35528600, unique2=1877200
 n=50000, unique1=210946400, unique2=3844600
 n=100000, unique1=851631000, unique2=4450000
 n=200000, unique1=3519915500, unique2=9920100
+* unique1 831200 unique2 701000000
 * */
 
 import static lab.lab1A.AlgAnalysis.unique1Runtime;
