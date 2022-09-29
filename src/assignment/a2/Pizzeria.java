@@ -7,7 +7,7 @@ public class Pizzeria implements IPizzeria {
     static int M=10;
 
     @Override
-    public void addPizza(Pizza pizza) {
+    public void addPizza(int kind) {
 
     }
 
