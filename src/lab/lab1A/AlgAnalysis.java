@@ -36,31 +36,29 @@ public class AlgAnalysis {
      */
     public static void arraySortRuntime(int count, int maxSize) {
         // add your code here (part 1)
-		int[] sample=createCountSample(count, maxSize);
-		for (int i = 0; i < sample.length; i++) {
-			int n=sample[i];
-			long tn=0;
-			for (int j=0;j<ONE_COUNT_TEST_TIME;j++){
-				int[] array=genArray(n);
-				NanoTimeCount timer=new NanoTimeCount();
-				Arrays.sort(array);
-				timer.end();
-				tn=Math.max(tn, timer.getTime());
-			}
-			System.out.printf("n=%d,T(n)=%d,T(n)/(N^2)=%.3f,T(n)/(n log n)=%.3f%n", n,tn,(double)tn/(n*n),tn/(Math.log(n)*n));
-		}
+        int[] sample = createCountSample(count, maxSize);
+        for (int i = 0; i < sample.length; i++) {
+            int n = sample[i];
+            long tn = 0;
+            for (int j = 0; j < ONE_COUNT_TEST_TIME; j++) {
+                int[] array = genArray(n);
+                NanoTimeCount timer = new NanoTimeCount();
+                Arrays.sort(array);
+                timer.end();
+                tn = Math.max(tn, timer.getTime());
+            }
+            System.out.printf("n=%d,T(n)=%d,T(n)/(N^2)=%.3f,T(n)/(n log n)=%.3f%n", n, tn, (double) tn / (n * n), tn / (Math.log(n) * n));
+        }
     }
 
-	static int[] createCountSample(int count, int maxSize)
-	{
-		int[] ans= new int[count];
-		ans[count-1]=maxSize;
-		for (int i=count-2;i>=0;i--)
-		{
-			ans[i]=ans[i+1]-(int)maxSize/count;
-		}
-		return ans;
-	}
+    static int[] createCountSample(int count, int maxSize) {
+        int[] ans = new int[count];
+        ans[count - 1] = maxSize;
+        for (int i = count - 2; i >= 0; i--) {
+            ans[i] = ans[i + 1] - (int) maxSize / count;
+        }
+        return ans;
+    }
 
     /**
      * creates an array of size n, then tests the runtime of findDups1 using that array
@@ -70,14 +68,14 @@ public class AlgAnalysis {
      */
     public static long unique1Runtime(int n) {
         // add your code here (part 2)
-        long tn=0;
+        long tn = 0;
 
-            for (int i=0;i<ONE_COUNT_TEST_TIME;i++){
-                int[] array=genArray(n);
-                NanoTimeCount timer=new NanoTimeCount();
-                Unique1.unique1(array);
-                timer.end();
-                tn=Math.max(tn, timer.getTime());
+        for (int i = 0; i < ONE_COUNT_TEST_TIME; i++) {
+            int[] array = genArray(n);
+            NanoTimeCount timer = new NanoTimeCount();
+            Unique1.unique1(array);
+            timer.end();
+            tn = Math.max(tn, timer.getTime());
 
         }
         return tn;
@@ -91,15 +89,15 @@ public class AlgAnalysis {
      */
     public static long unique2Runtime(int n) {
         // add your code here (part 2)
-        long tn=0;
+        long tn = 0;
 
 
-            for (int i=0;i<ONE_COUNT_TEST_TIME;i++){
-                int[] array=genArray(n);
-                NanoTimeCount timer=new NanoTimeCount();
-                Unique2.unique2(array);
-                timer.end();
-                tn=Math.max(tn, timer.getTime());
+        for (int i = 0; i < ONE_COUNT_TEST_TIME; i++) {
+            int[] array = genArray(n);
+            NanoTimeCount timer = new NanoTimeCount();
+            Unique2.unique2(array);
+            timer.end();
+            tn = Math.max(tn, timer.getTime());
 
         }
         return tn;

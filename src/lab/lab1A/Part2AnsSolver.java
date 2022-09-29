@@ -16,7 +16,7 @@ import static lab.lab1A.AlgAnalysis.unique2Runtime;
 public class Part2AnsSolver {
     static long ONE_MINUTE_NANOSEC = 60000000000L;
     static int STEP1 = 500;
-    static int STEP2=1000000;
+    static int STEP2 = 1000000;
 
     static void solveEqualN() {
         int[] sample = new int[]{50, 200, 10000, 20000, 50000, 100000, 200000};
