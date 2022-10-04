@@ -10,7 +10,7 @@ package lab.lab2.balance;/*  CSI2114 Lab 3 - lab3.java
 
 class bracketsBalance {
 
-    private boolean bBalance (String exp){
+    boolean bBalance(String exp){
         Stack s = new ArrayStack();
 
         for (int i = 0; i < exp.length(); i++) {
