@@ -10,10 +10,23 @@ package lab.lab2.balance;/*  CSI2114 Lab 3 - lab3.java
 
 class bracketsBalance {
 
-    private boolean bBalance (String exp){ 
+    private boolean bBalance (String exp){
+        Stack s = new ArrayStack();
 
-        // INCLUDE YOUR CODE HERE
-
+        for (int i = 0; i < exp.length(); i++) {
+            if (exp.charAt(i) == '[') {
+                s.push(1);
+            }
+            if (exp.charAt(i) == ']') {
+                if (s.isEmpty()) {
+                    return false;
+                }
+                s.pop();
+            }
+        }
+        if (s.isEmpty()) {
+            return true;
+        }
         return false;
 
     }
