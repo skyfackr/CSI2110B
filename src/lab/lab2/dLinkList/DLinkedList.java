@@ -18,15 +18,46 @@ class DLinkedList {
 
     // Inserts a node into the list after pAfter
     void InsertNode(ListNode nNode, ListNode pAfter) {
-
-  	  // INSERT YOUR CODE HERE
+        if (pAfter == null) {
+            nNode.next = firstNode;
+            firstNode = nNode;
+            return;
+        }
+        if (pAfter==lastNode) {
+            lastNode.next = nNode;
+            lastNode = nNode;
+            return;
+        }
+        ListNode now=firstNode;
+        while (now!=null)
+        {
+            if (now==pAfter) {
+                nNode.next = now.next;
+                now.next = nNode;
+                return;
+            }
+            now = now.next;
+        }
+        throw new IllegalArgumentException("pAfter not found in list");
 
     }
 
     // Removes the specified node from the list
     void RemoveNode(ListNode nNode) {
-
-  	  // INSERT YOUR CODE HERE
+        if (nNode==firstNode) {
+            firstNode = firstNode.next;
+            return;
+        }
+        ListNode now=firstNode;
+        while (now!=null)
+        {
+            if (now.next==nNode) {
+                now.next = nNode.next;
+                return;
+            }
+            now = now.next;
+        }
+        throw new IllegalArgumentException("nNode not found in list");
   
     }
 
