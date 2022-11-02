@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class DBSCAN {
@@ -114,5 +115,32 @@ public class DBSCAN {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void main(String[] args) {
+        double minPts;
+        double eps;
+        String file;
+        try {
+            file=args[0];
+            if (!Files.isRegularFile(Path.of(file)))
+            {
+                System.out.println("File not found!");
+                return;
+            }
+            eps=Double.parseDouble(args[1]);
+            minPts=Double.parseDouble(args[2]);
+        }
+        catch (Exception e)
+        {
+            System.out.println("[PARAMETER] FILENAME EPS MINPTS");
+            return;
+        }
+        List<IPoint3D> points=DBSCAN.read(file);
+        DBSCAN dbscan=new DBSCAN(points);
+        dbscan.setEps(eps);
+        dbscan.setMinPts(minPts);
+        dbscan.findClusters();
+        dbscan.save("%s_clusters_%.1f_%d_%d.csv".formatted(file.substring(0,file.lastIndexOf('.')),eps,minPts,dbscan.getNumberOfClusters()));
     }
 }
