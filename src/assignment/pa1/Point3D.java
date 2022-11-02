@@ -51,4 +51,8 @@ public class Point3D implements IPoint3D {
     public int getClusterID() {
         return cluster;
     }
+    @Override
+    public void markNoise() {
+        cluster = NOISE;
+    }
 }

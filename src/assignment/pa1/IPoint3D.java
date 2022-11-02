@@ -12,4 +12,6 @@ public interface IPoint3D {
     double distance(IPoint3D other);
 
     int getClusterID();
+
+    void markNoise();
 }
