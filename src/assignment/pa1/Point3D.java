@@ -5,7 +5,7 @@ public class Point3D implements IPoint3D {
     private final double y;
     private final double z;
     private int cluster;
-    public static final int NOISE = -2;
+    public static final int NOISE = 0;
 
     public Point3D(double x, double y, double z) {
         this.x = x;

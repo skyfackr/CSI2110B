@@ -1,12 +1,10 @@
 package assignment.pa1;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class DBSCAN {
     private final List<IPoint3D> points;
@@ -49,7 +47,7 @@ public class DBSCAN {
             while (!pending.isEmpty())
             {
                 IPoint3D currentNeighbor=pending.pop();
-                if (currentNeighbor.getClusterID()>=0)//processed and skip(dont skip noise)
+                if (currentNeighbor.getClusterID()>=1)//processed and skip(dont skip noise)
                     continue;
                 newCluster.addPoint(currentNeighbor);
                 List<IPoint3D> neighborsOfNeighbor= neighborsFinder.rangeQuery(eps,currentNeighbor);//find neighbors
@@ -94,7 +92,27 @@ public class DBSCAN {
     }
     public void save(String filename)
     {
-        //todo save the points to a file
-        throw new UnsupportedOperationException();
+        try(FileWriter writer=new FileWriter(filename);)
+        {
+            if (clusters==null)
+                return;
+            writer.write("x,y,z,C,R,G,B");//first line
+            Map<Integer,String> RGBMap=new HashMap<>();//map cluster id to rgb string
+            for (IPointCluster cluster:clusters)
+            {
+                RGBMap.put(cluster.getClusterId(),cluster.getRGB());
+            }
+            for (IPoint3D point3D:points)
+            {
+                if (point3D.getClusterID()==Point3D.NOISE)//noise writting
+                {
+                    writer.write(String.format("%.2f,%.2f,%.2f,0,0.0,0.0,0.0",point3D.getX(),point3D.getY(),point3D.getZ()));
+                    continue;
+                }
+                writer.write(String.format("%.2f,%.2f,%.2f,%d,%s",point3D.getX(),point3D.getY(),point3D.getZ(),point3D.getClusterID(),RGBMap.get(point3D.getClusterID())));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

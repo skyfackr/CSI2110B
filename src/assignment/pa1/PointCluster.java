@@ -64,7 +64,7 @@ public class PointCluster implements IPointCluster {
         return rgb;
     }
     public static int assignNewID(List<IPointCluster> clusters) {
-        int id = 0;
+        int id = 1;
         do {
             boolean found = false;
             for (IPointCluster cluster : clusters) {
