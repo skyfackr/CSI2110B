@@ -5,12 +5,13 @@ public class Point3D implements IPoint3D {
     private final double y;
     private final double z;
     private int cluster;
+    public static final int NOISE = -2;
 
     public Point3D(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
-        this.cluster = -1;
+        this.cluster = -1;//-1 means no cluster
     }
     @Override
     public void setCluster(int cluster) {
