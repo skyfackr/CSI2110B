@@ -38,6 +38,7 @@ public class DBSCAN {
                 {
                     noise.markNoise();//mark all neighbors as noise
                 }
+                continue;
             }
             int id=PointCluster.assignNewID(this.clusters);
             List<Double> rgb=PointCluster.assignNewRGB(this.clusters);
@@ -57,6 +58,7 @@ public class DBSCAN {
                     pending.addAll(neighborsOfNeighbor);//process neighbors
                 }
             }
+            this.clusters.add(newCluster);
         }
     }
     public int getNumberOfClusters()
@@ -95,9 +97,9 @@ public class DBSCAN {
     {
         try(FileWriter writer=new FileWriter(filename);)
         {
-            if (clusters==null)
+            if (clusters.size()==0)
                 return;
-            writer.write("x,y,z,C,R,G,B");//first line
+            writer.write("x,y,z,C,R,G,B\n");//first line
             Map<Integer,String> RGBMap=new HashMap<>();//map cluster id to rgb string
             for (IPointCluster cluster:clusters)
             {
@@ -107,10 +109,10 @@ public class DBSCAN {
             {
                 if (point3D.getClusterID()==Point3D.NOISE)//noise writting
                 {
-                    writer.write(String.format("%.2f,%.2f,%.2f,0,0.0,0.0,0.0",point3D.getX(),point3D.getY(),point3D.getZ()));
+                    writer.write(String.format("%.2f,%.2f,%.2f,0,0.0,0.0,0.0\n",point3D.getX(),point3D.getY(),point3D.getZ()));
                     continue;
                 }
-                writer.write(String.format("%.2f,%.2f,%.2f,%d,%s",point3D.getX(),point3D.getY(),point3D.getZ(),point3D.getClusterID(),RGBMap.get(point3D.getClusterID())));
+                writer.write(String.format("%.2f,%.2f,%.2f,%d,%s\n",point3D.getX(),point3D.getY(),point3D.getZ(),point3D.getClusterID(),RGBMap.get(point3D.getClusterID())));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -141,6 +143,6 @@ public class DBSCAN {
         dbscan.setEps(eps);
         dbscan.setMinPts(minPts);
         dbscan.findClusters();
-        dbscan.save("%s_clusters_%.1f_%d_%d.csv".formatted(file.substring(0,file.lastIndexOf('.')),eps,minPts,dbscan.getNumberOfClusters()));
+        dbscan.save("%s_clusters_%.1f_%.0f_%d.csv".formatted(file.substring(0,file.lastIndexOf('.')),eps,minPts,dbscan.getNumberOfClusters()));
     }
 }
