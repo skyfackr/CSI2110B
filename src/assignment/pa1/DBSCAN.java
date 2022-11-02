@@ -58,8 +58,7 @@ public class DBSCAN {
     }
     public int getNumberOfClusters()
     {
-        //todo return the number of clusters
-        throw new UnsupportedOperationException();
+        return clusters.size();
     }
     public List<IPoint3D> getPoints()
     {
