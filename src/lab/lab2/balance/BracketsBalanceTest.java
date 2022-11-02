@@ -1,22 +1,17 @@
 package lab.lab2.balance;
 
 
-
-import org.junit.Test;
-import org.junit.Before;
 import org.junit.After;
-import org.junit.runners.JUnit4;
 import org.junit.Assert;
-
-
-import java.util.ArrayList;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * bracketsBalance Tester.
  *
  * @author <Authors name>
- * @since <pre>10月 4, 2022</pre>
  * @version 1.0
+ * @since <pre>10月 4, 2022</pre>
  */
 public class BracketsBalanceTest {
 
@@ -29,11 +24,8 @@ public class BracketsBalanceTest {
     }
 
 
-
     /**
-     *
      * Method: bBalance(String exp)
-     *
      */
     @Test
     public void testBBalance() throws Exception {

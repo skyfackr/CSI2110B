@@ -1,11 +1,11 @@
 package assignment.pa1;
 
 public class Point3D implements IPoint3D {
+    public static final int NOISE = 0;
     private final double x;
     private final double y;
     private final double z;
     private int cluster;
-    public static final int NOISE = 0;
 
     public Point3D(double x, double y, double z) {
         this.x = x;
@@ -13,14 +13,16 @@ public class Point3D implements IPoint3D {
         this.z = z;
         this.cluster = -1;//-1 means no cluster
     }
-    @Override
-    public void setCluster(int cluster) {
-        this.cluster = cluster;
-    }
+
     public Point3D(double x, double y, double z, int cluster) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.cluster = cluster;
+    }
+
+    @Override
+    public void setCluster(int cluster) {
         this.cluster = cluster;
     }
 
@@ -51,6 +53,7 @@ public class Point3D implements IPoint3D {
     public int getClusterID() {
         return cluster;
     }
+
     @Override
     public void markNoise() {
         cluster = NOISE;

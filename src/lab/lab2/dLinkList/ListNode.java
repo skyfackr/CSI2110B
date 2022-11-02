@@ -1,7 +1,7 @@
 package lab.lab2.dLinkList;/*  CSI2114 Lab 2 - ListNode.java
- *  
- *  Class node of a doubly linked list   
- *  
+ *
+ *  Class node of a doubly linked list
+ *
  *  by Jeff Souza
  *
  */

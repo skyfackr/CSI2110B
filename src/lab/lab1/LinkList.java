@@ -49,7 +49,7 @@ class LinkList {
         /* Print the list */
         Node current = llist; // point to the first node
         while (current != null) {
-            System.out.print((String) current.getElement() + " ");
+            System.out.print(current.getElement() + " ");
             current = current.getNext(); // move to the next
         }
         System.out.println();
@@ -74,6 +74,5 @@ class LinkList {
             current = current.getNext();
         }
         prev.setNext(null);
-        return;
     }
 }

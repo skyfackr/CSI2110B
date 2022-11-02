@@ -1,16 +1,25 @@
 package lab.lab2.balance;/*  CSI2114 Lab 3 - lab3.java
- *  
- *  Class to check balanced brackets in math expressions  
+ *
+ *  Class to check balanced brackets in math expressions
  *
  *  Usage: java bracketsBalance <exp>
- *  
+ *
  *  by Jeff Souza
  *
  */
 
 class bracketsBalance {
 
-    boolean bBalance(String exp){
+    public static void main(String[] args) {
+
+        bracketsBalance b = new bracketsBalance();
+        boolean result = b.bBalance(args[0]);
+
+        if (result) System.out.println("The expression is balanced.");
+        else System.out.println("The expression is NOT balanced.");
+    }
+
+    boolean bBalance(String exp) {
         Stack s = new ArrayStack();
 
         for (int i = 0; i < exp.length(); i++) {
@@ -24,19 +33,7 @@ class bracketsBalance {
                 s.pop();
             }
         }
-        if (s.isEmpty()) {
-            return true;
-        }
-        return false;
+        return s.isEmpty();
 
-    }
-
-    public static void main(String[] args) {
-
-        bracketsBalance b = new bracketsBalance();
-        boolean result = b.bBalance(args[0]);
-   
-        if (result) System.out.println("The expression is balanced."); 
-        else        System.out.println("The expression is NOT balanced."); 
     }
 }

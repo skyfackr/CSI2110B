@@ -3,10 +3,10 @@ package lab.lab2.balance;
 public class ArrayStack implements Stack {
 
     public static final int CAPACITY = 1000; //# default capacity of the stack
-    private int capacity;                    // maximum capacity of the stack.
-    private Object S[];                       // S holds the elements of the stack
+    private final int capacity;                    // maximum capacity of the stack.
+    private final Object[] S;                       // S holds the elements of the stack
     private int top = -1;                    // the top element of the stack.
- 
+
     public ArrayStack() {       //# Initialize the stack with default capacity
         this(CAPACITY);
     }

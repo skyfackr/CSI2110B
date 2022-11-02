@@ -55,7 +55,7 @@ public class AlgAnalysis {
         int[] ans = new int[count];
         ans[count - 1] = maxSize;
         for (int i = count - 2; i >= 0; i--) {
-            ans[i] = ans[i + 1] - (int) maxSize / count;
+            ans[i] = ans[i + 1] - maxSize / count;
         }
         return ans;
     }
