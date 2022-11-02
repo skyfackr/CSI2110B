@@ -1,5 +1,6 @@
 package assignment.pa1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NearestNeighbors implements INearestNeighbors {
@@ -9,7 +10,12 @@ public class NearestNeighbors implements INearestNeighbors {
     }
     @Override
     public List<IPoint3D> rangeQuery(double eps, IPoint3D point) {
-        //todo a rangeQuery method that finds the nearest neighbors of a 3D point
-        throw new UnsupportedOperationException();
+        List<IPoint3D> neighbors = new ArrayList<>();
+        for (IPoint3D p : lists) {
+            if (p.distance(point) <= eps) {
+                neighbors.add(p);
+            }
+        }
+        return neighbors;
     }
 }
