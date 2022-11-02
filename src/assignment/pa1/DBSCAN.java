@@ -1,7 +1,11 @@
 package assignment.pa1;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class DBSCAN {
@@ -64,10 +68,29 @@ public class DBSCAN {
     {
         return  points;
     }
-    public static List<Point3D> read(String filename)
+    public static List<IPoint3D> read(String filename)
     {
-        //todo read the file and return a list of points
-        throw new UnsupportedOperationException();
+        List<IPoint3D> points=new ArrayList<>();
+        List<String> lines;
+        try {
+            lines= Files.readAllLines(new File(filename).toPath());
+        }catch (IOException e)
+        {
+            System.out.println("File read failed!");
+            return null;
+        }
+        for (String line:lines)
+        {
+            if (line.startsWith("x"))
+                continue;
+            String[] parts=line.split(",");
+            double x=Double.parseDouble(parts[0]);
+            double y=Double.parseDouble(parts[1]);
+            double z=Double.parseDouble(parts[2]);
+            IPoint3D point=new Point3D(x,y,z);
+            points.add(point);
+        }
+        return points;
     }
     public void save(String filename)
     {
