@@ -1,6 +1,6 @@
 package assignment.pa1;
 
-public class Point3D {
+public class Point3D implements IPoint3D {
     private final double x;
     private final double y;
     private final double z;
@@ -12,6 +12,7 @@ public class Point3D {
         this.z = z;
         this.cluster = -1;
     }
+    @Override
     public void setCluster(int cluster) {
         this.cluster = cluster;
     }
@@ -22,25 +23,30 @@ public class Point3D {
         this.cluster = cluster;
     }
 
+    @Override
     public double getX() {
         return x;
     }
 
+    @Override
     public double getY() {
         return y;
     }
 
+    @Override
     public double getZ() {
         return z;
     }
 
-    public double distance(Point3D other) {
-        double xDiff = this.x - other.x;
-        double yDiff = this.y - other.y;
-        double zDiff = this.z - other.z;
+    @Override
+    public double distance(IPoint3D other) {
+        double xDiff = this.x - other.getX();
+        double yDiff = this.y - other.getY();
+        double zDiff = this.z - other.getZ();
         return Math.sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff);
     }
 
+    @Override
     public int getClusterID() {
         return cluster;
     }
