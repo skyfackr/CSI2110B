@@ -41,4 +41,42 @@ public class PointCluster implements IPointCluster {
         }
         return false;
     }
+    public static List<Double> assignNewRGB(List<IPointCluster> clusters) {
+        List<Double> rgb = new ArrayList<>();
+        do {
+            double r = Math.random()*255;
+            double g = Math.random()*255;
+            double b = Math.random()*255;
+            boolean found = false;
+            for (IPointCluster cluster : clusters) {
+                if (cluster.getRGB().equals(String.format("%.1f,%.1f,%.1f", r , g , b ))) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                rgb.add(r);
+                rgb.add(g);
+                rgb.add(b);
+                break;
+            }
+        } while (true);
+        return rgb;
+    }
+    public static int assignNewID(List<IPointCluster> clusters) {
+        int id = 0;
+        do {
+            boolean found = false;
+            for (IPointCluster cluster : clusters) {
+                if (cluster.getClusterId() == id) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return id;
+            }
+            id++;
+        } while (true);
+    }
 }
