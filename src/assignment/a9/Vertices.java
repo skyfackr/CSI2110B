@@ -27,7 +27,7 @@ public class Vertices implements IGraph.IVertices {
 
     @Override
     public List<IGraph.IEdges> getConnectedEdges() {
-        return List.copyOf(graph.getEdges().stream().parallel().filter((e)-> e.getFrom()==this).toList());
+        return List.copyOf(graph.getEdges().stream().filter((e)-> e.getFrom()==this).toList());
     }
     private Label label;
 
