@@ -5,5 +5,6 @@ public enum Label {
     VISITED,
     DISCOVERY,
     BACK,
-    NONE
+    NONE,
+    CROSS
 }
