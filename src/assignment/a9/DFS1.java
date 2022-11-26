@@ -13,6 +13,7 @@ public class DFS1 implements  IAlgorithm{
     }
     private void dfs(IGraph graph, IGraph.IVertices vertex)
     {
+        vertex.setLabel(Label.VISITED);
         for (IGraph.IEdges e:vertex.getConnectedEdges())
         {
             if (e.getLabel()==Label.UNEXPLORED)
