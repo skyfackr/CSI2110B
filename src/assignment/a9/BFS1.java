@@ -22,6 +22,7 @@ public class BFS1 implements  IAlgorithm{
         int index=0;
         l.add(new ArrayList<>());
         vertex.setLabel(Label.VISITED);
+        l.get(index).add(vertex);
         while (!l.get(index).isEmpty()) {
             System.out.println("开始访问第%d层：[%s]".formatted(index, l.get(index).stream().map(IGraph.IVertices::getName).collect(Collectors.joining(","))));
             l.add(new ArrayList<>());

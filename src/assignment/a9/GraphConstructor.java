@@ -1,6 +1,6 @@
 package assignment.a9;
 
-import java.util.List;
+import java.util.*;
 
 public class GraphConstructor {
     /*
@@ -28,5 +28,29 @@ public class GraphConstructor {
             List.of(8,5),List.of(8,9),
             List.of(9,6),List.of(9,7),List.of(9,8)
     );
+    public static List<List<Integer>> reverse(List<List<Integer>> data)
+    {
+        List<List<Integer>> result=new ArrayList<>();
+        Map<Integer, Stack<List<Integer>>> stackMap = new HashMap<>();
+        for (List<Integer> unit:data)
+        {
+            int from=unit.get(0);
+            int to=unit.get(1);
+            if (!stackMap.containsKey(from))
+                stackMap.put(from,new Stack<>());
+            stackMap.get(from).push(unit);
+        }
+        while(!stackMap.isEmpty()) {
+            int index= stackMap.keySet().stream().min(Integer::compareTo).get();
+            Stack<List<Integer>> stack=stackMap.get(index);
+            stackMap.remove(index);
+            while (!stack.isEmpty())
+            {
+                result.add(stack.pop());
+            }
 
+        }
+        return result;
+
+    }
 }
