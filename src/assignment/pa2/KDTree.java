@@ -17,9 +17,9 @@ public class KDTree {
     }
     private KDTreeNode insertInternal(KDTreeNode node, Point3D p, int depth) {
         if (node == null) {
-            return new KDTreeNode(p, depth );
+            node=new KDTreeNode(p, depth );
         }
-        if (p.get(node.axis) <= node.value) {
+        else if (p.get(node.axis) <= node.value) {
             node.left = insertInternal(node.left, p, (depth + 1)% DIMENSION);
         } else {
             node.right = insertInternal(node.right, p, (depth + 1)% DIMENSION);
