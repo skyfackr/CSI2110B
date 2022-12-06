@@ -129,3 +129,15 @@ aver. time=0.000000
 ```
 
 As excepted, kd tree is much faster than linear search.
+
+# exp3
+
+# cmd output
+
+```powershell
+# 1
+timeLin = 170
+timeKd = 82
+# 2
+# 3
+```
