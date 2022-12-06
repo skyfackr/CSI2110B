@@ -69,7 +69,7 @@ public class Exp1 {
 	List<Point3D> neighbors= nn.rangeQuery(query,eps);
 	List<String> neighborsString = new ArrayList<String>();
 	for (Point3D point: neighbors) {
-		neighborsString.add(point.toString());
+		neighborsString.add("%s,%s,%s".formatted(point.getX(), point.getY(), point.getZ()));
 	}
 	File out= Paths.get(args[6]).toFile();
 	out.createNewFile();
