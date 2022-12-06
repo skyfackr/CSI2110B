@@ -95,8 +95,25 @@ receive result of neighbors of queried point. new algorithm has same output as o
 
 ## same test
 
-```powershell
+code at ```Exp1Test```
 
+load all files and generate list at memory. Then for each pair to compare use code below.
+
+```java
+static boolean containsAll(List<Point3D> f1, List<Point3D> f2){
+        return f1.stream().allMatch((p)-> f2.stream().anyMatch((p2)->p.getX()==p2.getX()&&p.getY()==p2.getY()&&p.getZ()==p2.getZ()));
+    }
+```
+
+### cmd output
+
+```powershell
+File 0 OK
+File 1 OK
+File 2 OK
+File 3 OK
+File 4 OK
+File 5 OK
 ```
 
 
@@ -110,3 +127,5 @@ aver. time=0.002700
 java Exp2 kd 0.05 ./testdata/Point_Cloud_1.csv 10
 aver. time=0.000000
 ```
+
+As excepted, kd tree is much faster than linear search.
