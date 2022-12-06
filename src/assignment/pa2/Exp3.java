@@ -8,15 +8,16 @@ package assignment.pa2;
 import assignment.pa2.Exp1;
 
 public class Exp3 {
+    static final String file="./testdata/Point_Cloud_3.csv";
     public static void main(String[] args) {
         String[] cmd1=new String[]{
-                Exp1Launcher.file,
+                file,
                 "1.2",
                 "10",
                 "lin"
         };
         String[] cmd2=new String[]{
-                Exp1Launcher.file,
+                file,
                 "1.2",
                 "10",
                 "kd"

@@ -139,5 +139,9 @@ As excepted, kd tree is much faster than linear search.
 timeLin = 170
 timeKd = 82
 # 2
+timeLin = 193
+timeKd = 126
 # 3
+timeLin = 187
+timeKd = 135
 ```
