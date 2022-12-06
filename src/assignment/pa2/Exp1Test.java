@@ -20,10 +20,10 @@ public class Exp1Test {
             f1=pair.get(0);
             f2=pair.get(1);
             if (containsAll(f1,f2)) {
-                System.out.println("File %d OK".formatted(data.indexOf(pair)));
+                System.out.printf("File %d OK%n", data.indexOf(pair));
             }
             else {
-                System.out.println("File %d Not Same".formatted(data.indexOf(pair)));
+                System.out.printf("File %d Not Same%n", data.indexOf(pair));
             }
         }
     }

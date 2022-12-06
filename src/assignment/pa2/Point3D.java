@@ -10,7 +10,7 @@ package assignment.pa2;/*
 
 public class Point3D implements IPoint3D{
 
-  private double x;
+  private final double x;
     private int cluster;
     public void setCluster(int cluster) {
         this.cluster = cluster;
@@ -31,8 +31,8 @@ public class Point3D implements IPoint3D{
     public void markNoise() {
         cluster = 0;
     }
-  private double y;
-  private double z;
+  private final double y;
+  private final double z;
   public int label; // not used here
 
   // constructs point (x,y,z)

@@ -32,7 +32,7 @@ public class Exp2 {
             long time= (end-start)/1000000;
             times.add(time);
         }
-        System.out.println("aver. time=%f".formatted(times.stream().mapToLong(Long::longValue).average().orElse(0)));
+        System.out.printf("aver. time=%f%n", times.stream().mapToLong(Long::longValue).average().orElse(0));
 
 
 

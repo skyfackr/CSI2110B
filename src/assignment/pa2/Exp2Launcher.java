@@ -24,9 +24,9 @@ public class Exp2Launcher {
                     file,
                     "10"
             };
-        System.out.println("java Exp2 %s".formatted(String.join(" ",cmd1)));
+        System.out.printf("java Exp2 %s%n", String.join(" ",cmd1));
         Exp2.main(cmd1);
-        System.out.println("java Exp2 %s".formatted(String.join(" ",cmd2)));
+        System.out.printf("java Exp2 %s%n", String.join(" ",cmd2));
         Exp2.main(cmd2);
     }
 

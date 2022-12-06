@@ -33,7 +33,7 @@ public class Exp1Launcher {
     }
     static void printCmd(List<String> c)
     {
-        System.out.println("java Exp1 %s %f %s %s %s %s %s".formatted(c.get(0),EPS,file, c.get(1), c.get(2), c.get(3),getOutFile(c)));
+        System.out.printf("java Exp1 %s %f %s %s %s %s %s%n", c.get(0),EPS,file, c.get(1), c.get(2), c.get(3),getOutFile(c));
     }
     static String getOutFile(List<String> c)
     {
