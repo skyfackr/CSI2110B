@@ -1,6 +1,8 @@
-# exp1 code
+# exp1
 
-```
+## cmd output
+
+```powershell
 java Exp1 lin 0.050000 ./testdata/Point_Cloud_1.csv -5.429850155 0.807567048 -0.398216823 ./exp1/pt1_lin.txt
 number of neighbors= 5
 (-5.415942549526783,0.7715622302147948,-0.3968421613600826),
