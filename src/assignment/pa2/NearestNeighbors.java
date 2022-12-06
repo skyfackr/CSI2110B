@@ -15,14 +15,14 @@ public class NearestNeighbors implements INearestNeighbors {
   protected java.util.List<Point3D> points; 
 
   // construct with list of points
-  public NearestNeighbors(java.util.List<Point3D> points) {
+  public NearestNeighbors(List<IPoint3D> points) {
        
     this.points= points; 
   }
 
   // gets the neighbors of p (at a distance less than eps)
   @Override
-  public List<Point3D> rangeQuery(Point3D p, double eps) {
+  public List<Point3D> rangeQuery(IPoint3D p, double eps) {
 
     // empty list to contain the neighbors
     List<Point3D> neighbors= new ArrayList<Point3D>(); 

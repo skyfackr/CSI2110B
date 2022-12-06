@@ -8,9 +8,29 @@ package assignment.pa2;/*
  *
 */ 
 
-public class Point3D {
+public class Point3D implements IPoint3D{
 
   private double x;
+    private int cluster;
+    public void setCluster(int cluster) {
+        this.cluster = cluster;
+    }
+    public double distance(assignment.pa1.IPoint3D other) {
+        double xDiff = this.x - other.getX();
+        double yDiff = this.y - other.getY();
+        double zDiff = this.z - other.getZ();
+        return Math.sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff);
+    }
+
+    @Override
+    public int getClusterID() {
+        return cluster;
+    }
+
+    @Override
+    public void markNoise() {
+        cluster = 0;
+    }
   private double y;
   private double z;
   public int label; // not used here

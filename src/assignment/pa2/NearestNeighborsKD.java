@@ -22,7 +22,7 @@ public class NearestNeighborsKD implements INearestNeighbors {
 // plus possibly other initializations
     }
 
-    public List<Point3D> rangeQuery(Point3D p, double eps) {
+    public List<Point3D> rangeQuery(IPoint3D p, double eps) {
         List<Point3D> neighbors= new ArrayList<Point3D>();
         rangeQuery(p, eps, neighbors, tree.getRoot());
         return neighbors;
