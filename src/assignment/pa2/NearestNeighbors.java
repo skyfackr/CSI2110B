@@ -15,7 +15,7 @@ public class NearestNeighbors implements INearestNeighbors {
   protected java.util.List<Point3D> points; 
 
   // construct with list of points
-  public NearestNeighbors(List<IPoint3D> points) {
+  public NearestNeighbors(List<Point3D> points) {
        
     this.points= points; 
   }

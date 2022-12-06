@@ -13,17 +13,17 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class DBSCAN {
-    private final List<IPoint3D> points;
+    private final List<Point3D> points;
     private double eps;
     private double minPts;
     private List<IPointCluster> clusters;
 
-    public DBSCAN(List<IPoint3D> points) {
+    public DBSCAN(List<Point3D> points) {
         this.points = points;
     }
 
-    public static List<IPoint3D> read(String filename) {
-        List<IPoint3D> points = new ArrayList<>();
+    public static List<Point3D> read(String filename) {
+        List<Point3D> points = new ArrayList<>();
         List<String> lines;
         try {
             lines = Files.readAllLines(new File(filename).toPath());
@@ -38,12 +38,16 @@ public class DBSCAN {
             double x = Double.parseDouble(parts[0]);
             double y = Double.parseDouble(parts[1]);
             double z = Double.parseDouble(parts[2]);
-            IPoint3D point = new Point3D(x, y, z);
+            Point3D point = new Point3D(x, y, z);
             points.add(point);
         }
         return points;
     }
+    static String method;
 
+    /**
+     * java DBSCAN filename eps minPts method
+     */
     public static void main(String[] args) {
         double minPts;
         double eps;
@@ -56,11 +60,12 @@ public class DBSCAN {
             }
             eps = Double.parseDouble(args[1]);
             minPts = Double.parseDouble(args[2]);
+            method=args[3];
         } catch (Exception e) {
-            System.out.println("[PARAMETER] FILENAME EPS MINPTS");
+            System.out.println("[PARAMETER] FILENAME EPS MINPTS method");
             return;
         }
-        List<IPoint3D> points = DBSCAN.read(file);
+        List<Point3D> points = DBSCAN.read(file);
         DBSCAN dbscan = new DBSCAN(points);
         dbscan.setEps(eps);
         dbscan.setMinPts(minPts);
@@ -75,11 +80,20 @@ public class DBSCAN {
     public void setMinPts(double minPts) {
         this.minPts = minPts;
     }
+    private static INearestNeighbors createNearestNeighbors(String method, List<Point3D> points) {
+        if (method.equals("lin")) {
+            return new NearestNeighbors(points);
+        } else if (method.equals("kd")) {
+            return new NearestNeighborsKD(points);
+        } else {
+            throw new IllegalArgumentException("Invalid method");
+        }
+    }
 
     public void findClusters() {
         clusters = new ArrayList<>();//initial ans list or erase previous answer
 
-        INearestNeighbors neighborsFinder = new NearestNeighbors(points);
+        INearestNeighbors neighborsFinder = createNearestNeighbors(method, points);
         for (IPoint3D current : points) {
             //single point processor
             if (current.getClusterID() != -1)//processed and skip
@@ -117,7 +131,7 @@ public class DBSCAN {
         return clusters.size();
     }
 
-    public List<IPoint3D> getPoints() {
+    public List<Point3D> getPoints() {
         return points;
     }
 
