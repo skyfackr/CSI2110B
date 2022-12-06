@@ -91,6 +91,15 @@ number of neighbors= 2
 (14.180766680737111,4.639415392714257,-0.1338543779659772)
 ```
 
+receive result of neighbors of queried point. new algorithm has same output as original
+
+## same test
+
+```powershell
+
+```
+
+
 # exp2
 
 # cmd output
