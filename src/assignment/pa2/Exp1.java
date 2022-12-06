@@ -67,7 +67,9 @@ public class Exp1 {
 	}
 	File out= Paths.get(args[6]).toFile();
 	out.createNewFile();
-	  (new OutputStreamWriter(new FileOutputStream(out))).write(String.join(",\n", neighborsString));
+	  try (OutputStreamWriter streamWriter = new OutputStreamWriter(new FileOutputStream(out))){
+		  streamWriter.write(String.join(",\n", neighborsString));
+	  }
 	
 	System.out.println("number of neighbors= "+neighbors.size());
 	//System.out.println(neighbors);
