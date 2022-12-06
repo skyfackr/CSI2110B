@@ -72,7 +72,7 @@ public class Exp1 {
 	  }
 	
 	System.out.println("number of neighbors= "+neighbors.size());
-	//System.out.println(neighbors);
+	System.out.println(String.join(",\n", neighborsString));
   }
   private static INearestNeighbors createNearestNeighbors(String method, List<Point3D> points) {
 	  if (method.equals("lin")) {
