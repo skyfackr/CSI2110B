@@ -8,6 +8,7 @@ package assignment.pa2;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Exp1Test {
     static final String DIR="./exp1";
@@ -37,8 +38,33 @@ public class Exp1Test {
     }
     static List<List<Point3D>> loadPair(File f1, File f2) throws Exception {
         List<List<Point3D>> pair=new ArrayList<>();
-        pair.add(Exp1.read(f1.getAbsolutePath()));
-        pair.add(Exp1.read(f2.getAbsolutePath()));
+        pair.add(read2(f1.getAbsolutePath()));
+        pair.add(read2(f2.getAbsolutePath()));
         return pair;
+    }
+    public static List<Point3D> read2(String filename) throws Exception {
+
+        List<Point3D> points= new ArrayList<Point3D>();
+        double x,y,z;
+
+        Scanner sc = new Scanner(new File(filename));
+        // sets the delimiter pattern to be , or \n \r
+        sc.useDelimiter(",|\n|\r");
+
+        // skipping the first line x y z
+        //sc.next(); sc.next(); sc.next();
+
+        // read points
+        while (sc.hasNext())
+        {
+            x= Double.parseDouble(sc.next());
+            y= Double.parseDouble(sc.next());
+            z= Double.parseDouble(sc.next());
+            points.add(new Point3D(x,y,z));
+        }
+
+        sc.close();  //closes the scanner
+
+        return points;
     }
 }
