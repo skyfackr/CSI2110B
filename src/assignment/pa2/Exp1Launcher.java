@@ -8,6 +8,7 @@ public class Exp1Launcher {
     static final String file="./testdata/Point_Cloud_1.csv";
     static final String OUT="./exp1/";
     public static void main(String[] args) throws Exception {
+
         for (List<String> now:cmd)
         {
             printCmd(now);

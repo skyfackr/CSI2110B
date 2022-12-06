@@ -8,6 +8,7 @@ package assignment.pa2;/*
  *
 */
 
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -64,10 +65,12 @@ public class Exp1 {
 	for (Point3D point: neighbors) {
 		neighborsString.add(point.toString());
 	}
-	  (new OutputStreamWriter(new FileOutputStream(args[6]))).write(String.join(",\n", neighborsString));
+	File out= Paths.get(args[6]).toFile();
+	out.createNewFile();
+	  (new OutputStreamWriter(new FileOutputStream(out))).write(String.join(",\n", neighborsString));
 	
 	System.out.println("number of neighbors= "+neighbors.size());
-	System.out.println(neighbors);
+	//System.out.println(neighbors);
   }
   private static INearestNeighbors createNearestNeighbors(String method, List<Point3D> points) {
 	  if (method.equals("lin")) {
