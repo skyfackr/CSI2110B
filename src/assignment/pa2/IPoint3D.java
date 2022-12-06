@@ -9,7 +9,7 @@ public interface IPoint3D {
 
     double getZ();
 
-    double distance(IPoint3D other);
+    double distance(Point3D other);
 
     int getClusterID();
 

@@ -22,7 +22,7 @@ public class NearestNeighbors implements INearestNeighbors {
 
   // gets the neighbors of p (at a distance less than eps)
   @Override
-  public List<Point3D> rangeQuery(IPoint3D p, double eps) {
+  public List<Point3D> rangeQuery(Point3D p, double eps) {
 
     // empty list to contain the neighbors
     List<Point3D> neighbors= new ArrayList<Point3D>(); 

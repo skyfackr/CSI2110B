@@ -94,7 +94,7 @@ public class DBSCAN {
         clusters = new ArrayList<>();//initial ans list or erase previous answer
 
         INearestNeighbors neighborsFinder = createNearestNeighbors(method, points);
-        for (IPoint3D current : points) {
+        for (Point3D current : points) {
             //single point processor
             if (current.getClusterID() != -1)//processed and skip
                 continue;
@@ -110,10 +110,10 @@ public class DBSCAN {
             List<Double> rgb = PointCluster.assignNewRGB(this.clusters);
             IPointCluster newCluster = new PointCluster(id, rgb.get(0), rgb.get(1), rgb.get(2));
             newCluster.addPoint(current);
-            Stack<IPoint3D> pending = new Stack<>();
+            Stack<Point3D> pending = new Stack<>();
             pending.addAll(neighbors);//process neighbors
             while (!pending.isEmpty()) {
-                IPoint3D currentNeighbor = pending.pop();
+                Point3D currentNeighbor = pending.pop();
                 if (currentNeighbor.getClusterID() >= 1)//processed and skip(dont skip noise)
                     continue;
                 newCluster.addPoint(currentNeighbor);
