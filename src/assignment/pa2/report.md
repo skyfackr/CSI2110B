@@ -86,3 +86,14 @@ number of neighbors= 2
 (14.159820885717384,4.680702456874969,-0.1337915844837233),
 (14.180766680737111,4.639415392714257,-0.1338543779659772)
 ```
+
+# exp2
+
+# cmd output
+
+```powershell
+java Exp2 lin 0.05 ./testdata/Point_Cloud_1.csv 10
+aver. time=0.002700
+java Exp2 kd 0.05 ./testdata/Point_Cloud_1.csv 10
+aver. time=0.000000
+```
