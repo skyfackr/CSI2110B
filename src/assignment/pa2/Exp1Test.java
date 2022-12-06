@@ -7,6 +7,7 @@ package assignment.pa2;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Exp1Test {
             List<Point3D> f1,f2;
             f1=pair.get(0);
             f2=pair.get(1);
-            if (f1.stream().allMatch((p)->f2.contains(p))){
+            if (containsAll(f1,f2)) {
                 System.out.println("File %d OK".formatted(data.indexOf(pair)));
             }
             else {
@@ -66,5 +67,8 @@ public class Exp1Test {
         sc.close();  //closes the scanner
 
         return points;
+    }
+    static boolean containsAll(List<Point3D> f1, List<Point3D> f2){
+        return f1.stream().allMatch((p)-> f2.stream().anyMatch((p2)->p.getX()==p2.getX()&&p.getY()==p2.getY()&&p.getZ()==p2.getZ()));
     }
 }
