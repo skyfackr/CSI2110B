@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2022.
+ * Sky Jiang 300217544
+ */
+
 package assignment.pa2;
 
 import java.io.File;
