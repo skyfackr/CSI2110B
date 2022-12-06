@@ -1,4 +1,4 @@
-/*
+package assignment.pa2;/*
  * Linear neighbors search
  *
  * CSI2510 Algorithmes et Structures de Donnees

@@ -1,4 +1,4 @@
-/*
+package assignment.pa2;/*
  * Incomplete Experiment 1 
  *
  * CSI2510 Algorithmes et Structures de Donnees

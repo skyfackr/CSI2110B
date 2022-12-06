@@ -1,4 +1,4 @@
-/*
+package assignment.pa2;/*
  * Point3D (x,y,z)
  *
  * CSI2510 Algorithmes et Structures de Donnees
