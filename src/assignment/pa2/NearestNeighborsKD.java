@@ -3,7 +3,7 @@ package assignment.pa2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NearestNeighborsKD {
+public class NearestNeighborsKD implements INearestNeighbors {
     protected KDTree tree;
 
     // construct with list of points

@@ -10,7 +10,7 @@ package assignment.pa2;/*
 import java.util.List;
 import java.util.ArrayList;
 
-public class NearestNeighbors {
+public class NearestNeighbors implements INearestNeighbors {
 
   protected java.util.List<Point3D> points; 
 
@@ -21,6 +21,7 @@ public class NearestNeighbors {
   }
 
   // gets the neighbors of p (at a distance less than eps)
+  @Override
   public List<Point3D> rangeQuery(Point3D p, double eps) {
 
     // empty list to contain the neighbors
