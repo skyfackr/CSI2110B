@@ -13,7 +13,8 @@ public class KDTree {
     }
 
     public KDTreeNode add(Point3D p) {
-        return insertInternal(root,p ,0);
+        root=insertInternal(root,p ,0);
+        return root;
     }
     private KDTreeNode insertInternal(KDTreeNode node, Point3D p, int depth) {
         if (node == null) {
